@@ -12,6 +12,7 @@ def create_app():
     f = config.factory(config_name if config_name else 'development')
     app.config.from_object(f)
     
+    
     f.init_app(app)
     db.init_app(app)
     

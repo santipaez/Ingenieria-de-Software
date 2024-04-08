@@ -6,7 +6,7 @@ class UserRepository(Create, Read, Update, Delete):
     def __init__(self) -> None:
         self.model = User
     
-    def create(self, entity: User) -> db.Model:
+    def create(self, entity: User) -> User:
         return super().create(entity)
     
     def find_all(self):
