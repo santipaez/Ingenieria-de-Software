@@ -11,9 +11,9 @@ class TestApp(unittest.TestCase):
     def test_create_app(self):
         self.assertIsNotNone(self.app)
 
-    # def test_home_page(self):
-    #     rv = self.client.get('/home')
-    #     self.assertEqual(rv.status_code, 200)
-
+    def test_index_page(self):
+        rv = self.client.get('/')
+        self.assertEqual(rv.status_code, 200)
+    
 if __name__ == '__main__':
     unittest.main()
