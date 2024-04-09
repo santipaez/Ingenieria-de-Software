@@ -1,18 +1,19 @@
-import pytest
+import unittest
 from app import create_app
 
-def test_create_app():
-    app = create_app()
-    assert app is not None
+class TestApp(unittest.TestCase):
 
-@pytest.fixture
-def client():
-    app = create_app()
-    app.config['TESTING'] = True
+    def setUp(self):
+        self.app = create_app()
+        self.app.config['TESTING'] = True
+        self.client = self.app.test_client()
 
-    with app.test_client() as client:
-        yield client
+    def test_create_app(self):
+        self.assertIsNotNone(self.app)
 
-# def test_home_page(client):
-#     rv = client.get('/')
-#     assert rv.status_code == 200
+    # def test_home_page(self):
+    #     rv = self.client.get('/home')
+    #     self.assertEqual(rv.status_code, 200)
+
+if __name__ == '__main__':
+    unittest.main()
