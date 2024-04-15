@@ -3,3 +3,4 @@ __pycache__
 docker/postgres/data
 .venv
 .vscode
+.pytest_cache
