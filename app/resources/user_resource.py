@@ -1,5 +1,6 @@
 from flask import jsonify, Blueprint, request
 from app.services.user_service import UserService
+from app.mapping.user_schema import UserSchema
 
 user = Blueprint('user', __name__)
 user_schema = UserSchema()
