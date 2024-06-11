@@ -6,4 +6,7 @@ SQLAlchemy==2.0.28
 Flask-RESTful==0.3.10
 requests==2.31.0
 flask-marshmallow==1.2.1
+marshmallow-sqlalchemy==1.0.0
 psycopg2==2.9.9
+Flask-Caching==2.1.0
+redis==5.0.5

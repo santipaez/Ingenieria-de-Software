@@ -1,10 +1,17 @@
 from flask import jsonify, Blueprint, request
 from app.services.user_service import UserService
 from app.mapping.user_schema import UserSchema
+from app.mapping.response_schema import ResponseSchema
+from app.models.response_message import ResponseBuilder
 
 user = Blueprint('user', __name__)
 user_schema = UserSchema()
-        
+
+# home
+@user.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "Welcome to the user home!"}), 200
+
 # find all users
 @user.route('/find_all', methods=['GET'])
 def index():
@@ -60,7 +67,7 @@ def cancel_gym_class(booking_id):
     command.execute()
     return {"message": "Reserva de clase de gimnasio cancelada"}, 200
 
-#get all bokkings
+#get all bookings
 @user.route('/get_bookings/<int:user_id>', methods=['GET'])
 def get_user_bookings(user_id):
     booking_service = BookingService()

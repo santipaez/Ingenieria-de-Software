@@ -14,7 +14,7 @@ class User(db.Model):
     email = db.Column('email', db.String, unique=True)
     password = db.Column('password', db.String)
     
-    # roles = db.relationship("Role", secondary="user_roles", back_populates="users")
+    roles = db.relationship("Role", secondary="user_roles", back_populates="users")
     
     def to_dict(self):
         return {

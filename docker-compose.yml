@@ -11,7 +11,7 @@ services:
       - .env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ms-user.rule=Host(`ms-user.docker.localhost`)"
+      - "traefik.http.routers.ms-user.rule=Host(`ms-user.um.localhost`)"
       - "traefik.http.routers.ms-user.entrypoints=web"
       - "traefik.http.services.ms-user.loadbalancer.server.port=5000"
 
