@@ -23,10 +23,14 @@ def index():
 @user.route('/find/<int:id>', methods=['GET'])
 def find(id):
     service = UserService()
+    user = service.find_by_id(id)
+    if user is None:
+        return jsonify({"message": "Usuario no encontrado"}), 404
+
     response_builder = ResponseBuilder()
     response_builder.add_message("Usuario encontrado")\
         .add_status_code(200)\
-        .add_data(UserSchema().dump(service.find_by_id(id)))
+        .add_data(UserSchema().dump(user))
     return ResponseSchema().dump(response_builder.build()), 200
 
 #delete user
